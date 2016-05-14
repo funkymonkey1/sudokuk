@@ -1,0 +1,72 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"></head><body>{% extends "base.html" %}
+{% load extras %}
+
+
+{% block stylesheets %}
+
+	<style>
+		.sudoku {
+		  margin:1em auto;
+		}
+		.sudoku td {
+		  height:30px;
+		  width:30px;
+		  border:1px solid;
+		  text-align:center;
+		}
+		.sudoku td:first-child {
+		  border-left:solid;
+		}
+		.sudoku td:nth-child(3n) {
+		  border-right:solid ;
+		}
+		.sudoku tr:first-child {
+		  border-top:solid;
+		}
+		.sudoku tr:nth-child(3n) td {
+		  border-bottom:solid ;
+		}
+
+		.numero::-webkit-outer-spin-button,
+		.numero::-webkit-inner-spin-button {
+		    -webkit-appearance: none;
+		    margin: 0;
+		}
+
+		.numero {
+		    -moz-appearance:textfield;
+		}
+
+		.numero:focus {
+			--moz-appearance: number-input
+		}
+	</style>
+{% endblock %}
+
+{% block content %}
+
+<div class="container" id="sudoku">
+	<h2 class="padding">Solution</h2>
+	
+		{% for row in grid %}
+			
+			{% for element in row %}
+				
+			{% endfor %}
+			
+		{% endfor %}
+	<table class="sudoku">
+	<tbody><tr><td>{{ element }}</td></tr></tbody>
+	</table>
+	<form action="{% url 'home' %}">
+		<input style="display:block; margin: 0 auto;" class="btn btn-primary" value="Solve Another One" type="submit">
+	</form>
+
+</div>
+{% for posted_value in nothing %}
+	{{ posted_value }}
+{% endfor %}
+
+{% endblock %}
+</body></html>
