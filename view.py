@@ -11,10 +11,10 @@ def input_sudoku(request):
 	entrada = []
 	mode = request.GET.get('mode')
 	mode = int(mode)*9 or 9
-	for i in range(0, 81):
+	for i in xrange(0, 81):
 		entrada.append('.')
 	sorter = []
-	for i in range(0,mode):
+	for i in xrange(0,mode):
 		sorter.append(randint(0,80))
 
 	entrada[randint(1,9)] = randint(1,9)
@@ -32,7 +32,7 @@ def no_solution(request):
 
 def solve_sudoku(request):
 	sudoku_input = []
-	for i in range(0, 81):
+	for i in xrange(0, 81):
 		input_character = request.POST[str(i)]
 		if len(input_character) == 0:
 			sudoku_input.append('.')
